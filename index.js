@@ -16,7 +16,8 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.WEB_URL, 
+    // origin: 'http://localhost:5173', 
+    origin: 'https://elred-chat.vercel.app', 
     methods: ["GET", "POST"],
   },
 });
@@ -140,6 +141,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT, () => {
-  console.log(`Server listening on port: ${process.env.PORT}`);
+server.listen(8080, () => {
+  console.log(`Server listening on port:8080`);
 });
