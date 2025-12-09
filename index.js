@@ -16,7 +16,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // change if needed
+    origin: process.env.WEB_URL, // change if needed
     methods: ["GET", "POST"],
   },
 });
@@ -140,7 +140,6 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = 3000;
-server.listen(PORT, () => {
-  console.log(`Server listening on http://localhost:${PORT}`);
+server.listen(process.env.PORT, () => {
+  console.log(`Server listening`);
 });
